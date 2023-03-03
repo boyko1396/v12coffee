@@ -24,7 +24,7 @@ $(document).ready(function(){
   setTimeout(function() {
     $('body').addClass('is-modal');
     $('.modal--poll').addClass('is-show');
-  }, 400);
+  }, 40000);
 
   $('.js-modal-close').click(function(){
     $('body').removeClass('is-modal');
