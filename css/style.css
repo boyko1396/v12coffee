@@ -3916,4 +3916,7 @@ h6,
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
   }
+  .modal__poll-title {
+    font-size: 24px;
+  }
 }
