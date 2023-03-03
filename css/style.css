@@ -3897,6 +3897,15 @@ h6,
     .section-card__title {
       font-size: 18px;
     }
+    .poll-el__list {
+      margin-bottom: -20px;
+    }
+    .col-6.poll-el__col {
+      max-width: 100%;
+      margin-bottom: 20px;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+    }
 }
 
 @media (max-width: 575px) {
