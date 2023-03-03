@@ -781,6 +781,8 @@ h6,
   padding: 50px 0 20px;
   font-size: 18px;
   text-align: initial;
+  position: relative;
+  z-index: 1;
 }
 
 .close-btn {
@@ -845,6 +847,15 @@ h6,
   margin: 0 auto;
   padding: 30px 40px;
   color: #000;
+}
+
+.modal__overflay-close {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
 }
 
 /* components ================*/
@@ -1563,7 +1574,7 @@ h6,
 
 .partners-section__title {
   text-align: center;
-  margin-bottom: 57px;
+  margin-bottom: 60px;
   letter-spacing: -.015em;
 }
 
@@ -2419,7 +2430,7 @@ h6,
 
 .benefits-section__title {
   max-width: 720px;
-  margin: 0 auto 257px;
+  margin: 0 auto 100px;
   line-height: 1.04;
   text-align: center;
   letter-spacing: -.015em;
@@ -3167,9 +3178,10 @@ h6,
       padding-left: 34px;
     }
     .btn__text-gift {
-      margin-top: 5px;
+      margin: 5px 0 0;
       padding: 5px 10px;
-      top: 100%;
+      text-align: center;
+      top: 100%;  
       right: 0;
       border-radius: 4px;
       z-index: 1;
@@ -3184,9 +3196,36 @@ h6,
     .btn--gift:not(.btn--theme_dark) .btn__text-gift {
       background: rgba(0,0,0,.9);
     }
+    .partners-card--color-accent .partners-price-list__item {
+      justify-content: space-between;
+      flex-direction: initial;
+      align-items: flex-end;
+    }
+    .partners-card {
+      padding: 20px;
+    }
+    .partners-card__title {
+      margin-bottom: 30px;
+    }
+    .partners-price-list__item:not(:last-child) {
+      margin-bottom: 15px;
+    }
 }
 
 @media (max-width: 1024px) {
+    .btn__text-gift {
+      width: 100vw;
+      margin: 5px 0 0 -134px;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .return-content__btn .btn__text-gift {
+      margin-left: -166px;
+    }
+    .franchise-content__btn .btn__text-gift {
+      margin-left: -212px;
+    }
     .intro-section__btn,
     .franchise-content__btn,
     .return-content__btn {
@@ -3675,6 +3714,10 @@ h6,
     }
     .modal__center {
     }
+    .partners-card__result {
+      width: 100%;
+      margin-top: 20px;
+    }
 }
 
 @media (max-width: 991px) {
@@ -3700,8 +3743,6 @@ h6,
       font-size: 16px;
       padding-right: 10px;
       padding-left: 10px;
-    }
-    .modal__inner {
     }
     .modal__poll-title {
       margin-bottom: 30px;
@@ -3763,7 +3804,7 @@ h6,
     }
     .partners-price-list__item,
     .partners-card__result {
-        font-size: 20px;
+      font-size: 18px;
     }
     .container {
         padding-right: 20px;
@@ -3918,6 +3959,15 @@ h6,
     .btn:not(.btn--size-md) {
       padding-right: 24px;
       padding-left: 24px;
+    }
+    .btn__text-gift {
+      margin-left: -125px;
+    }
+    .return-content__btn .btn__text-gift {
+      margin-left: -93px;
+    }
+    .franchise-content__btn .btn__text-gift {
+      margin-left: -127px;
     }
 }
 
