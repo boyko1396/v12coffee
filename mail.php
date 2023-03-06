@@ -1,5 +1,18 @@
 ﻿<?php
 
+function rest($url, $data) {
+$opts = array('http' =>
+    array(
+        'method'  => 'POST',
+        'header'  => 'Content-Type: application/x-www-form-urlencoded',
+        'content' => $data
+    )
+);
+$context  = stream_context_create($opts);
+$result = file_get_contents("https://v12coffee.bitrix24.ua/rest/1937/fzf2ct7k25s12b9n/".$url, false, $context);
+return json_decode($result);
+}
+
 $arr = [
  'mail' => "lidogeneratorv12@gmail.com",
  'name' => $_POST['user_name'],
@@ -63,7 +76,34 @@ if (!empty($_POST['utm_content'])) {
   </center>
   </body>
   </html>';    
- 
+$contact_add = rest("crm.contact.add", http_build_query(array("fields" => array(
+              "NAME" => $_POST['user_name'],
+              "PHONE" => array(array("VALUE" => $_POST['user_phone'], "VALUE_TYPE" => "WORK")),
+              "UF_CRM_1658735248 " => $_POST['user_phone'],
+              "TYPE_ID" => "CLIENT",
+              "ASSIGNED_BY_ID" => 8819,              
+              ),
+              "params" => array(
+                "REGISTER_SONET_EVENT" => "Y",
+              ),
+)));
+$deal_add = rest("crm.deal.add", http_build_query(array("fields" => array(
+              "TITLE" => 'Заявка з сайту',
+              "UTM_CONTENT" => $_POST['utm_content'],
+              "UTM_CAMPAIGN" => $_POST['utm_campaign'],
+              "UTM_MEDIUM" => $_POST['utm_medium'],
+              "UTM_SOURCE" => $_POST['utm_source'],
+              "UTM_TERM" => $_POST['utm_term'],
+              "ASSIGNED_BY_ID" => 8819,
+              "STAGE_ID" => "C11:NEW",
+              "CATEGORY_ID" => 11,
+              "CONTACT_ID" => $contact_add->result,
+              ),
+              "params" => array(
+                "REGISTER_SONET_EVENT" => "Y",
+              ),
+            )));
+
 $headers = "Content-type: text/html; charset=utf-8\r\n";
 $headers .= "From: New Message <admin@v12coffee.com.ua>\r\n";
 $result = mail($arr['mail'], $arr['subject'], $message, $headers);
@@ -78,12 +118,30 @@ header("Refresh: 5; URL=/");
   <title>Дякуємо! Ми вам зателефонуємо!</title>
   <meta name="generator">
   <script type="text/javascript">
-    setTimeout('location.replace("/")', 5000);
+    setTimeout('location.replace("/")', 55000);
   </script>
   <link href="/img/favicon.png" type="image/png" rel="icon">
   <link rel="stylesheet" href="/css/style.min.css?923602358433">
-  <!-- Meta Pixel Code -->
-  <script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '820794729077925');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=820794729077925&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Meta Pixel Code -->
+<script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -92,13 +150,57 @@ header("Refresh: 5; URL=/");
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1601747136842897');
+  fbq('init', '621046626340192');
   fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1601747136842897&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=621046626340192&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '471780618166141');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=471780618166141&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-235221948-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-235221948-1');
+</script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TD7MBX2JCQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TD7MBX2JCQ');
+</script>
+  
+
+
+
+
+
 </head>
 <body>
 

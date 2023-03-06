@@ -293,7 +293,7 @@ src="https://www.facebook.com/tr?id=5415776031848849&ev=PageView&noscript=1"
     <section id="calc-section" class="calc-section">
       <div class="container container--size-md calc-section__container">
         <h2 class="title title-size-2 calc-section__title">Прорахуй свій дохід</h2>
-        <form action="#" class="calc-section__calc">
+        <form action="mail.php" method="POST" class="calc-section__calc">
           <div class="calc-section__calc-body">
             <div class="row calc-section__calc-row">
               <div class="col-4 calc-section__calc-col">
@@ -333,6 +333,10 @@ src="https://www.facebook.com/tr?id=5415776031848849&ev=PageView&noscript=1"
               </div>
               <div class="col-4 calc-section__calc-footer-col">
                 <input type="text" name="user_phone" class="js-phone-mask input input--phone" required placeholder="Номер телефону">
+                <input type="hidden" name="utm_source" value="">
+                <input type="hidden" name="utm_medium" value="">
+                <input type="hidden" name="utm_campaign" value="">
+                <input type="hidden" name="utm_content" value="">
               </div>
               <div class="col-4 calc-section__calc-footer-col">
                 <button type="submit" class="btn btn--theme_dark btn--size-md calc-section__calc-btn">Відправити</button>
@@ -976,14 +980,14 @@ src="https://www.facebook.com/tr?id=5415776031848849&ev=PageView&noscript=1"
       <div class="js-modal-close modal__overflay-close"></div>
       <div class="modal__inner">
         <h2 class="title title-size-2 modal__poll-title">Дайте відповідь на 3 питання та&nbsp;отримайте додатковий набір інгредієнтів</h2>
-        <form action="#" class="poll-el modal__poll">
+        <form action="#" method="POST" class="poll-el modal__poll">
           <div class="poll-el__body">
             <div class="poll-el__item is-active">
               <h3 class="title title-size-4 poll-el__item-title">Чи мали ви попередній досвід купівлі франшизи?</h3>
               <div class="row poll-el__list">
                 <div class="col-6 poll-el__col">
                   <label class="u-checkbox poll-el__u-checkbox">
-                    <input type="radio" name="question1[]" class="u-checkbox__control" checked value="Так">
+                    <input type="radio" name="question1" class="u-checkbox__control" checked value="Так">
                     <span class="u-checkbox__inner">
                       <span class="u-checkbox__icon"></span>
                       <span class="u-checkbox__text">Так</span>
@@ -992,7 +996,7 @@ src="https://www.facebook.com/tr?id=5415776031848849&ev=PageView&noscript=1"
                 </div>
                 <div class="col-6 poll-el__col">
                   <label class="u-checkbox poll-el__u-checkbox">
-                    <input type="radio" name="question1[]" class="u-checkbox__control" value="Ні">
+                    <input type="radio" name="question1" class="u-checkbox__control" value="Ні">
                     <span class="u-checkbox__inner">
                       <span class="u-checkbox__icon"></span>
                       <span class="u-checkbox__text">Ні</span>
@@ -1011,7 +1015,7 @@ src="https://www.facebook.com/tr?id=5415776031848849&ev=PageView&noscript=1"
               <div class="row poll-el__list">
                 <div class="col-6 poll-el__col">
                   <label class="u-checkbox poll-el__u-checkbox">
-                    <input type="radio" name="question2[]" class="u-checkbox__control" checked value="Так">
+                    <input type="radio" name="question2" class="u-checkbox__control" checked value="Так">
                     <span class="u-checkbox__inner">
                       <span class="u-checkbox__icon"></span>
                       <span class="u-checkbox__text">Так</span>
@@ -1020,7 +1024,7 @@ src="https://www.facebook.com/tr?id=5415776031848849&ev=PageView&noscript=1"
                 </div>
                 <div class="col-6 poll-el__col">
                   <label class="u-checkbox poll-el__u-checkbox">
-                    <input type="radio" name="question2[]" class="u-checkbox__control" value="Ні">
+                    <input type="radio" name="question2" class="u-checkbox__control" value="Ні">
                     <span class="u-checkbox__inner">
                       <span class="u-checkbox__icon"></span>
                       <span class="u-checkbox__text">Ні</span>
@@ -1042,6 +1046,10 @@ src="https://www.facebook.com/tr?id=5415776031848849&ev=PageView&noscript=1"
                 </div>
                 <div class="col-6 poll-el__col">
                   <input type="text" name="user_phone" class="js-phone-mask input input--phone" required placeholder="Номер телефону">
+                  <input type="hidden" name="utm_source" value="">
+                  <input type="hidden" name="utm_medium" value="">
+                  <input type="hidden" name="utm_campaign" value="">
+                  <input type="hidden" name="utm_content" value="">
                 </div>
               </div>
               <footer class="poll-el__footer">
